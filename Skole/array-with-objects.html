@@ -7,6 +7,7 @@
 </head>
 <body>
     <ul id="profiles"></ul>
+    
     <script>
 
 const lectures = [
@@ -15,24 +16,36 @@ const lectures = [
         office: "d1-016",
         email: "toremak@hiof.no",
         birthyear: 1983,
+        courses:["inføring i programmering", "kommuniksjondesign", "ui designprosjekt", "utvikling av interaktive nettsteder"]
     },
     {
         name: "daniela blauhut",
         office: "d1-015",
         email: "danielb@hiof.no",
         birthyear: 1977,
+        courses:["designmetoder", "UI designprosjekter"]
     },
     {
         name: "ann-charlott karlsen",
         office: "d1-062",
         email: "ackarlsen@hiof.no",
         birthyear: 1992,
+        courses:["webutvikling", "utvikling av interaktive nettsteder"]
     },
     {
         name: "ole edvard ørebæk",
         office: "d1-061A",
         email: "oledvon@hiof.no",
         birthyear: 1993,
+        courses:["inføring i datasikkerhet"]
+    },
+    {    
+        name: "Thor Andreas Holtberg Murtnes-Hatlestad",
+        office: "hjemmekontor",
+        email: "thorah@hiof.no",
+        birthyear: 1990,
+        courses:["innføring i prgrammering"]
+
     },
 ]
 
@@ -49,16 +62,20 @@ const profiles = document.getElementById("profiles")
 //     console.log(lecturer)
 // })
 
-lectures.filter(lec => lec.birtyear >= 1990).map(lecturer => {
+lectures.filter(lec => lec.birthyear >= 1990).map(lecturer => {
     profiles.innerHTML += `
     <li>
-        <h3>${lecturer.name}<h3>
-            <span>alder: ${2025 - lecturer.birthyear}</span>
-            <p>kontor: ${lecturer.office}</p>
-            <a href="mailto : ${lecturer.email}">skriv e-post til ${lecturer.name}</a>
-            <li>`
-})
-    </script>
+        <h3>${lecturer.name}</h3>
+        <span>alder: ${2025 - lecturer.birthyear}</span>
+        <p>kontor: ${lecturer.office}</p>
+        <a href="mailto:${lecturer.email}">skriv e-post til ${lecturer.name}</a>
+        <ul>
+            ${lecturer.courses.map(course => `<li>${course}</li>`).join('')}
+        </ul>
+    
+});
+
+</script>
 
     
 
