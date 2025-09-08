@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1 - løkker</title>
+</head>
+<body>
+    <ul id="nedtelling">¨
+
+    </ul>
+    <script>
+        //Lag klar tom HTML-variabel
+        let htmlString = ""
+
+        //for-løkken starter på 10, teller så lenge teller er større eller lik 0, og trekker fra en for hver runde løkken går: 
+        for(let teller = 10; teller >= 0; teller--) {
+            //oppgave 1: kommenter ut til frodel for oppgave 1.1:
+            //htmlString += `<li>${teller}<li>`
+
+            //Oppgave 1.1: løst med ternary operator.
+            htmlString += `<li>${teller === 0 ? "we take-off" : teller}</li>`
+            //oppgave 1.1 kan også løses med en if/elske-setning: 
+
+            if(teller === 0) {
+                htmlString += `<li>We take-off</li>`
+            } else {
+                htmlString += `<li>${teller}</li>`
+
+
+            }
+        }
+
+        //skriv ut htmlString inn i ul med id nedtelling:
+        document.getElementById("nedtelling").innerHTML = htmlString
+
+    </script>
+    
+</body>
+</html>
