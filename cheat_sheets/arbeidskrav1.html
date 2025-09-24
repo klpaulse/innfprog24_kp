@@ -12,6 +12,7 @@
 <body>
     <header>
         <h1 id="companyname"></h1>
+        
         <form>
             <input type="text" />
             <button>Søk</button>
@@ -20,13 +21,16 @@
     <main>
         <section id="employee_list">
             <article class="card">
-                <img src="avatar.png" alt="Navn Navnesen" />
+                <img src="avatar.png" alt="Navn Navnesen">
                 <p>Navn Navnesen<br />navn@email.com</p>
             </article>
             <article class="card">
-                <img src="avatar.png" alt="Navn Navnesen" />
+                <img src="avatar.png" alt="Navn Navnesen">
                 <p>Navn Navnesen<br />navn@email.com</p>
             </article>
+
+            
+
         </section>
     </main>
     <footer>
@@ -65,22 +69,26 @@
             image: "woman"
         },
         ]
-        //De var oppsummert på en linje, måketegnene er satt riktig i forhold til hvor de skal være. 
+    
 
         //Secret keys to access url and images
-        let images_folder = "img
+        let images_folder = "img"
+        //Tekststreng img er ikke avsluttet med en strengtegn. satt på en strengtegn bak img.
+
         let secret_key = 0
         let ak_key
         
         //Turn on or off safeguard to allow system to run
-        const safeguard = false
+        const safeguard = true
+        //Betingelsen må bli møtt for at bestemte funksjonalitet skal utføres.Endret fra false til true.
         
         //Control of safeguard to create image folder name
         if(safeguard === true) {
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        console.logg("Image folder: " + safe_images_folder)
+        console.log("Image folder: " + safe_images_folder)
+        //console.log er skrevet med to gg'er. Endret til en g.
 
         let HTML_employees = ""
 
@@ -93,7 +101,9 @@
                     <p>${e.email}</p>
                 </article>`)
 
-                document.getElementbyId("employee_list").innerHTML = HTML_employeeees
+                document.getElementById("employee_list").innerHTML = HTML_employees
+                //getElementById, var skrevet med liten b. Endret til en stor B
+                //for mange e'er, skal kun være to e'er.
         }
 
         //System prints
