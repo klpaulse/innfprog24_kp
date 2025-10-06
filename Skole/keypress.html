@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taste trykk</title>
+    <style>
+        html{
+            width: 100dvw;
+            height: 100dvh;
+        }
+        #box{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+
+        const box= document.getElementById("box")
+
+        document.addEventListener("keydown", (event) => {
+            if(event.key == "ArrowLeft"){
+                
+                box.style.right += 100 + "px"
+            }else if(event.key == "ArrowRiht"){
+            box.style.left += 100 + "px"
+        
+            }
+            console.log("key pressed = " + event.key)
+
+        })
+    </script>
+    
+</body>
+</html>
