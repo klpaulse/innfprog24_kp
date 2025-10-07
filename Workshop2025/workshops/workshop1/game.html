@@ -32,7 +32,7 @@
     </header>
     <main>
         
-        <section id="notebook">
+        <section id="notebook" class="hidden">
             <div id="notebook-page">
                 
                 <h2>Notater</h2>
@@ -94,7 +94,9 @@
     loops: 4,
     functions: 7
 }
-        
+      
+
+
 
         //TODO: print playerinfo to HTML
        
@@ -132,8 +134,11 @@
         document.getElementById("loops").innerHTML = notebook.loops
         document.getElementById("functions").innerHTML = notebook.functions
         }
+        document.getElementById("notebook")
 
         updateStaticUI()
+
+
 
 
 
