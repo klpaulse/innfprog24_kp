@@ -26,7 +26,7 @@
         </section>
         <img src="icons/c3_logo.svg" alt="Code Concept Collector" />
         <nav>
-            <button id="notebookToggler"><img src="icons/notebook.svg" />Åpne kladdeboka <span class="shortcut">n</span></button>
+            <button  id="notebookToggler"><img src="icons/notebook.svg" />Åpne kladdeboka <span class="shortcut">n</span></button>
             <button id="infoToggler">Info / Hvordan spille <span class="shortcut">i</span></button>
         </nav>
     </header>
@@ -115,6 +115,74 @@
         }
 
         updateStaticUI()
+
+        function toggleVisibility(elementid){
+            const elem = document.getElementById(elementid)
+            console.log(elem)
+            if(elem.classList.contains("hidden")){
+                elem.style.display = "block"
+                elem.classList.remove("hidden")
+    
+            } else{
+                elem.style.display= "none"
+                elem.classList.add("hidden")
+            }
+        }
+
+        toggleVisibility("info")
+
+        document.addEventListener("keydown",(event)=> {
+            if(event.code === "keyN"){
+                toggleVisibility("notebook")
+            } else if(event.code === "keyI"){
+                toggleVisibility("info")
+            }
+        })
+
+        const infoTogglerBtn= document.getElementById("infoToggler")
+
+        infoTogglerBtn.addEventListener("click", ()=> {
+            toggleVisibility("info")
+        })
+
+        const notebookTogglerBtn= document.getElementById("notebookToggler")
+        notebookBtn=addEventListener("click", ()=> {
+            toggleVisibility("notebook")
+        }) 
+        
+        function updateSingleStaticUI(elementid, value){
+            document.getElementById(elementid).innerHTML = value
+
+        }
+
+        updateSingleStaticUI("points", 10)
+        updateSingleStaticUI("energy", 60)
+       
+        function updateConfigValue(obj, configType, value){
+
+            obj === "notebook" ? notebook[configType] += value : null
+            obj === "gameConfig" ? gameConfig[configType] += value : null
+
+            //configType === "variables" ? notebook.variables += value : null
+            //configType === "arrays" ? notebook.arrays += value : null
+            //configType === "loops" ? notebook.loops += value : null
+            //configType === "functions" ? notebook.functions += value : null
+
+           // configType === "energy" ? gameConfig.energy += value : null
+           // configType === "points" ? gameConfig.points += value : null
+           // configType === "duration" ? gameConfig.duration += value : null
+
+          updateStaticUI()
+          
+          }
+          
+          
+           
+        
+       
+
+        updateConfigValue("notebook", "variables", 10)
+        updateConfigValue("gameConfig", "energy", 100)
     </script>
 </body>
 </html>
