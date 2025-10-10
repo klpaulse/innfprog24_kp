@@ -16,7 +16,7 @@
     <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
-    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_two"></span></p>
 
     <script>
         //PROBLEM 1
@@ -26,16 +26,22 @@
         
         //Din kode for å løse problem 1 her.
 
-        function random_color(hexadecimal_characters){
-            const hexadecimal_characters = "ABCDEF1234567890"
+
+        const  getRandomHexColor =  () => {
+          const hexadecimal_characters = "ABCDEF1234567890"
            const hexadecimal_characters_array = Array.from(hexadecimal_characters)
            let random_color_code = "#"
+           }
 
 
-            return hexadecimal_characters
+            for(let i = 0; i < 6; i ++){
+                hexadecimal += letters[(Math.floor(Math.random ()*16))]
 
-        }
-        console.log(random_color)
+
+            }
+
+        
+        console.log(getRandomHexColor)
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
