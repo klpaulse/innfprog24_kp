@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        #drawing-area{
+            border: 2px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawing-area" height="600px" width="800px"></canvas>
+    
+    <script>
+        const canvas = document.getElementById("drawing-area")
+        const ctx = canvas.getContext("2d")
+
+        const mainColor= "#C28538"
+        //kan lage en const for å bruke mainColor ved fillStyle for å få fargen. 
+
+        canvas.width = 800
+        canvas.height= 600
+
+        const rectangel= {
+            x: 100,
+            y: 500,
+            width: 600,
+            height: 200
+        }
+
+        const circle= {
+            x: 200,
+            y: 200,
+            radius: 10,
+        }
+
+        //Tegne streker
+        ctx.beginPath()
+        ctx.moveTo(0, 0)
+        ctx.lineTo(800, 600)
+        // x og y aksen
+        ctx.moveTo(800, 0)
+        ctx.lineTo(0, 600)
+        ctx.stroke()
+        ctx.closePath()
+
+        //Tegne rektangel
+        ctx.beginPath()
+        ctx.rect(rectangel.x, rectangel.y, rectangel.width, rectangel.height)
+        ctx.fillStyle = "blue"
+        //feks: ctx.fillStyle = mainColor
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+        //closePath avslutter dette.
+        
+        //Tegne sirkel
+        ctx.beginPath()
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI)
+       //  x og y, radius, start vinkel, slutt vinkel
+        ctx.fillStyle = "yellow"
+        ctx.fill()
+        ctx.closePath()
+
+        //tekst
+        ctx.beginPath()
+        ctx.font = "150px Arial"
+        ctx.strokeText("5", 360, 420)
+        ctx.font = "24px Helvetica"
+        ctx.fillStyle= "purple"
+        ctx.fillText("Karianne", 200, 200)
+        ctx.closePath()
+
+        const pumpkin = new Image (128, 128)
+        let pumpkinLoaded = false
+        pumpkin.onload = () => {
+       ctx.drawImage(pumpkin, 0, 0, 128, 128)
+        }
+        pumpkim.src = "pumpkin.png"
+        
+
+
+    </script>
+</body>
+</html>

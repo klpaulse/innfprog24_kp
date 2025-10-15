@@ -26,33 +26,54 @@
         
         //Din kode for å løse problem 1 her.
 
-
-        const  getRandomHexColor =  () => {
-          const hexadecimal_characters = "ABCDEF1234567890"
-           const hexadecimal_characters_array = Array.from(hexadecimal_characters)
-           let random_color_code = "#"
-           }
-
-
-            for(let i = 0; i < 6; i ++){
-                hexadecimal += letters[(Math.floor(Math.random ()*16))]
-
+            function getRandomHexColor (){
+                for (let i = 0; i <6; i++){
+                    random_color_code +=  hexadecimal_characters_array[Math.floor(Math.random() *16)]
+                }
+            
+                return random_color_code
 
             }
+            document.getElementById("random_color").innerHTML = getRandomHexColor ()
+          
 
-        
-        console.log(getRandomHexColor)
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
+    
 
+       
         //Din kode for å løse problem 2 her.
+       function nøkkelOrd (ord){
+        if (programming_words.includes(ord)){
+            return "ja"
+        }else{
+            return "nei"
+        }
+       }
+       document.getElementById("betingelse_sjekk").innerHTML = nøkkelOrd ("betingelse")
+       document.getElementById("algoritme_sjekk").innerHTML = nøkkelOrd ("algoritme")
+       document.getElementById("problemlosning_sjekk").innerHTML = nøkkelOrd ("problemlosning")
+
 
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //Din kode for å løse problem 3 her.
+        function gjennomsnittet(tallene){
+            let sum = 0
+            for(let index = 0; index <tallene.length; index++){
+                const tall = tallene[index]
+                sum += tall
+            }
+            return sum / tallene.length
+        }
+        document.getElementById("avg_array_one").innerHTML = gjennomsnittet(tall_array_en)
+        document.getElementById("avg_array_two").innerHTML = gjennomsnittet(tall_array_to)
+
+
+
     </script>
 </body>
 </html>
