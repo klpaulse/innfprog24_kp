@@ -25,12 +25,16 @@
         let random_color_code = "#"
         
         //AI-kode for å løse problem 1 her.
-         for (let i = 0; i < 6; i++) {
-      const random_index = Math.floor(Math.random() * hexadecimal_characters_array.length);
-      random_color_code += hexadecimal_characters_array[random_index];
-    }
+    
 
-    document.getElementById("random_color").textContent = random_color_code;
+    function generateRandomHexColor() {
+      let random_color_code = "#";
+      for (let i = 0; i < 6; i++) {
+        const random_index = Math.floor(Math.random() * hexadecimal_characters_array.length);
+        random_color_code += hexadecimal_characters_array[random_index];
+      }
+      return random_color_code
+    }
 
 
         //PROBLEM 2
@@ -56,26 +60,22 @@
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //AI-kode for å løse problem 3 her.
-        function finnGjennomsnittEn(array) {
-      let sum = 0;
-      for (let i = 0; i < array.length; i++) {
-        sum += array[i];
-      }
-      return (sum / array.length).toFixed(2); // To desimaler
+      function finnGjennomsnittEn(array) {
+      const sum = array.reduce((acc, val) => acc + val, 0);
+      return sum / array.length;
     }
 
-    // Funksjon for tall_array_to
     function finnGjennomsnittTo(array) {
-      let sum = 0;
-      for (let i = 0; i < array.length; i++) {
-        sum += array[i];
-      }
-      return (sum / array.length).toFixed(2);
+      const sum = array.reduce((acc, val) => acc + val, 0);
+      return sum / array.length;
     }
 
-    // Skriv ut resultatene i HTML
-    document.getElementById("avg_array_one").textContent = finnGjennomsnittEn(tall_array_en);
-    document.getElementById("avg_array_two").textContent = finnGjennomsnittTo(tall_array_to);
+    // Beregn og vis gjennomsnittene
+    const gjennomsnittEn = finnGjennomsnittEn(tall_array_en);
+    const gjennomsnittTo = finnGjennomsnittTo(tall_array_to);
+
+    document.getElementById("avg_array_one").textContent = gjennomsnittEn.toFixed(2);
+    document.getElementById("avg_array_two").textContent = gjennomsnittTo.toFixed(2)
  
 
     </script>
