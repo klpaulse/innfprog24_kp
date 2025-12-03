@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Passordgenerator</title>
+</head>
+<body>
+  <h2>Generer et passord</h2>
+  
+  <label for="length">Lengde:</label>
+  <input type="number" id="length" min="4" max="50" value="12"><br><br>
+  
+  <label for="letters">Bokstaver:</label>
+  <select id="letters">
+    <option value="lower">Kun små bokstaver</option>
+    <option value="upper">Kun store bokstaver</option>
+    <option value="both">Store og små bokstaver</option>
+  </select><br><br>
+  
+  <label for="specials">Inkluder spesialtegn:</label>
+  <input type="checkbox" id="specials"><br><br>
+  
+  <button onclick="generatePassword()">Generer passord</button>
+  
+  <p>Ditt passord: <span id="generatedPassword"></span></p>
+  
+  <script>
+    function generatePassword() {
+      const length = document.getElementById("length").value;
+      const lettersOption = document.getElementById("letters").value;
+      const includeSpecials = document.getElementById("specials").checked;
+      
+      let chars = "";
+      
+      if (lettersOption === "lower") {
+        chars += "abcdefghijklmnopqrstuvwxyz";
+      } else if (lettersOption === "upper") {
+        chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      } else {
+        chars += "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      
+      // Tall er alltid nyttige i passord
+      chars += "0123456789";
+      
+      if (includeSpecials) {
+        chars += "!@#$%^&*()-_=+[]{};:,.<>?";
+      }
+      
+      let password = "";
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * chars.length);
+        password += chars[randomIndex];
+      }
+      
+      document.getElementById("generatedPassword").textContent = password;
+    }
+  </script>
+</body>
+</html>

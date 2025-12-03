@@ -8,8 +8,38 @@
 <body>
     <h1>Passordgenerator</h1>
     <!-- Felter for brukervalg her -->
+    
+       
+       <label>
+        <input type="checkbox" id="small-options">
+        <span>(a-å)</span>
+       </label>
 
+       <label>
+        <input type="checkbox" id="big-options">
+        <span>(A-Å)</span>
+       </label>
 
+       <label>
+        <input type="checkbox" id="numberSelection">
+        <span>(0-9)</span>
+       </label>
+
+       <label>
+        <input type="checkbox" id="allSymbols">
+        <span>(!@#$%) </span>
+       </label>
+
+       <label>
+       <input type="number" id="password-length">
+       <span>Lengde på passord</span>
+       </label>
+       
+
+    <button id="generateBtn">Generer passord</button>    
+    
+    
+     
      <p>Ditt passord: <span id="generatedPassword"></span></p>
 
      <script>
@@ -18,9 +48,48 @@
         const numbers = "0123456789";
         const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
 
-        function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
-            /* Din kode her */
+        function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols ) {
+            /* Din kode her*/
+            
+           let characters = ""
+           if(document.getElementById("small-options").checked){
+            characters += lowercase
+
+          }if (document.getElementById("big-options").checked){
+            characters += uppercase
+
+          }if(document.getElementById("numberSelection").checked){
+            characters += numbers
+
+          }if(document.getElementById("allSymbols").checked){
+            characters += symbols
+          }
+
+          let password = ""
+          for (let i = 0; i<length; i++){
+          const index = Math.floor(Math.random() * characters.length)
+          password += characters[index]
+          }
+         return password
         }
+
+        function generate() {
+        const includeLowercase = document.getElementById("small-options").checked
+        const includeUppercase = document.getElementById("big-options").checked
+        const includeNumbers = document.getElementById("numberSelection").checked
+        const includeSymbols = document.getElementById("allSymbols").checked
+        const length = parseInt(document.getElementById("password-length").value)
+
+        const password = passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols)
+        document.getElementById("generatedPassword").innerHTML = password
+            }
+
+
+        const btn = document.getElementById("generateBtn")
+        
+      btn.addEventListener("click", generate) 
+        
+       
      </script>
 </body>
 </html>

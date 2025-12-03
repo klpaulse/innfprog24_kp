@@ -16,11 +16,27 @@
             Hva er en rekursiv funksjon?
 
             --Ditt svar her. Husk kilder--
+            En rekursiv funksjon er en funksjon som kaller på seg selv for å løse et problem og fortsetter helt til den ikke kaller 
+            seg selv lenger. Når den utfører en bestemt oppgave, kan den bryter ned store problemer til mindre.
+            Det er viktig å ha en stoppbetingelse, slik at funksjonen ikke kjører i en evighet.
+            
+            https://www.javascripttutorial.net/javascript-recursive-function/
         */
 
+       
         function numberSelector() {
             // Din kode her
+           const num = Math.floor(Math.random()* 9) + 1
+         numberList.innerHTML += `<li>${num}</li>`
+           if(num === 4 || num === 7){
+        numberList.innerHTML += `<li> stopp rekursiv, tallet ${num} er valgt</li>`
+            return 
+           }
+           numberSelector()
         }
+        numberSelector()
+       
+      
     </script>
 </body>
 </html>
